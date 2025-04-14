@@ -1,0 +1,263 @@
+/* Apercu */
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('/fonts/Apercu/apercu-pro-black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('/fonts/Apercu/apercu-pro-light-italic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('/fonts/Apercu/apercu_bold_italic_pro.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('/fonts/Apercu/apercu_bold_pro.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('/fonts/Apercu/apercu_medium_italic_pro.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('/fonts/Apercu/apercu_medium_pro.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('/fonts/Apercu/apercu_regular_italic_pro.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('/fonts/Apercu/apercu_regular_pro.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura */
+@font-face {
+  font-family: 'Futura';
+  src: url('/fonts/Futura/Futura Bold Italic BT.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura';
+  src: url('/fonts/Futura/Futura Extra Black BT.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura';
+  src: url('/fonts/Futura/Futura Extra Black Italic BT.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura';
+  src: url('/fonts/Futura/Futura Regular Book Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Futura Condensed */
+@font-face {
+  font-family: 'Futura Condensed';
+  src: url('/fonts/Futura Condensed/futura-pt_cond-extra-bold.otf') format('opentype'),
+       url('/fonts/Futura Condensed/futura-pt_cond-extra-bold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Roboto */
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto/Roboto-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto/Roboto-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto/Roboto-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto/Roboto-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto/Roboto-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto/Roboto-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto/Roboto-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto/Roboto-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto/Roboto-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto/Roboto-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Verdana */
+@font-face {
+  font-family: 'Verdana';
+  src: url('/fonts/Verdana/Verdana-BoldItalic.eot');
+  src: local('Verdana Bold Italic'), local('Verdana/Verdana-BoldItalic'),
+       url('/fonts/Verdana/Verdana-BoldItalic.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/Verdana/Verdana-BoldItalic.woff2') format('woff2'),
+       url('/fonts/Verdana/Verdana-BoldItalic.woff') format('woff'),
+       url('/fonts/Verdana/Verdana-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Verdana';
+  src: url('/fonts/Verdana/Verdana-Italic.eot');
+  src: local('Verdana Italic'), local('Verdana/Verdana-Italic'),
+       url('/fonts/Verdana/Verdana-Italic.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/Verdana/Verdana-Italic.woff2') format('woff2'),
+       url('/fonts/Verdana/Verdana-Italic.woff') format('woff'),
+       url('/fonts/Verdana/Verdana-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Verdana';
+  src: url('/fonts/Verdana/Verdana.eot');
+  src: local('Verdana'),
+       url('/fonts/Verdana/Verdana.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/Verdana/Verdana.woff2') format('woff2'),
+       url('/fonts/Verdana/Verdana.woff') format('woff'),
+       url('/fonts/Verdana/Verdana.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Verdana';
+  src: url('/fonts/Verdana/Verdana-Bold.eot');
+  src: local('Verdana Bold'), local('Verdana/Verdana-Bold'),
+       url('/fonts/Verdana/Verdana-Bold.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/Verdana/Verdana-Bold.woff2') format('woff2'),
+       url('/fonts/Verdana/Verdana-Bold.woff') format('woff'),
+       url('/fonts/Verdana/Verdana-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base styles */
+html, body, #__next {
+  font-family: 'Apercu Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
