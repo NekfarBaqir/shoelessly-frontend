@@ -69,22 +69,62 @@ const MainWrapper = ({
     }
   }, [rightSideRef, consultationRef])
 
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 2.5, ease: "easeInOut" },
+    },
+  }
+
+  const slideInFromLeft = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 2.5, // خیلی آهسته
+        ease: "easeInOut",
+      },
+    },
+  }
   return (
     <div className="relative z-20 flex h-[100%] w-full flex-grow flex-col items-start justify-start overflow-visible md:flex-row">
       {/* leaf side */}
       <div className="flex h-auto w-[100%] flex-col items-start justify-start gap-7 pb-5 md:h-[100%] md:gap-16 md:pb-0 2xl:gap-32">
         <div className="flex flex-col items-start justify-center">
-          <h1 className="font-futura-condensed text-secondary text-[1.9rem] leading-tight font-extrabold uppercase md:text-[1.9rem] lg:text-[3.6rem] 2xl:text-[6rem]">
+          <motion.h1
+            variants={fadeInUp}
+            transition={{ delay: 0.2, ease: "easeInOut" }}
+            initial="hidden"
+            animate="visible"
+            className="font-futura-condensed text-secondary text-[1.9rem] leading-tight font-extrabold uppercase md:text-[1.9rem] lg:text-[3.6rem] 2xl:text-[6rem]"
+          >
             {sloganTitle}
-          </h1>
+          </motion.h1>
           <p className="font-futura-condensed flex flex-col items-start justify-start text-[1.9rem] leading-tight font-extrabold text-white uppercase md:text-[1.9rem] lg:text-[3.6rem] 2xl:text-[6rem]">
-            <span>{sloganSubtitle}</span>
+            <motion.span
+              variants={fadeInUp}
+              transition={{ delay: 0.2, ease: "easeInOut" }}
+              initial="hidden"
+              animate="visible"
+            >
+              {sloganSubtitle}
+            </motion.span>
             <span ref={consultationRef} className="relative inline-block">
-              {consultation}
+              <motion.h1
+                variants={fadeInUp}
+                transition={{ delay: 0.2, ease: "easeInOut" }}
+                initial="hidden"
+                animate="visible"
+              >
+                {consultation}
+              </motion.h1>
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: comingSoonSetting.top > 0 ? 1 : 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 1.9 }}
                 className="fixed z-20 aspect-[144/57] h-fit w-[180px] xl:w-[380px] 2xl:w-[480px]"
                 style={{
                   top: comingSoonSetting.top,
@@ -99,21 +139,30 @@ const MainWrapper = ({
             </span>
           </p>
           <div className="font-futura-condensed text-secondary relative inline-block text-[1.9rem] leading-tight font-extrabold uppercase md:text-[1.9rem] lg:text-[3.6rem] 2xl:text-[6rem]">
-            {shoelessly}
-            <div className="absolute top-[90%] left-0 h-full w-full">
-              <Image src={UnderLine} alt="Doctor Image" width={500} height={100} />
-            </div>
+            <motion.h1
+              variants={fadeInUp}
+              transition={{ delay: 0.2, ease: "easeInOut" }}
+              initial="hidden"
+              animate="visible"
+            >
+              {shoelessly}
+              <div className="absolute top-[90%] left-0 h-full w-full">
+                <Image src={UnderLine} alt="Doctor Image" width={500} height={100} />
+              </div>
+            </motion.h1>
           </div>
         </div>
-        <p className="flex flex-col items-start justify-start font-sans text-[0.9rem] font-light md:text-[1.3rem] lg:text-[1.7rem] 2xl:text-[2.2rem]">
+        <motion.p
+          variants={slideInFromLeft}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col items-start justify-start font-sans text-[0.9rem] font-light md:text-[1.3rem] lg:text-[1.7rem] 2xl:text-[2.2rem]"
+        >
           <span className="w-full">{discussSymptoms}</span>
-
           <span className="w-full">{getAssessment}</span>
-
           <span className="w-full">{secondOpinion}</span>
-
           <span className="w-full">{secondOpinion2}</span>
-        </p>
+        </motion.p>
       </div>
 
       {/* leaf side */}
