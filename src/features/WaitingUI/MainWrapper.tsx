@@ -1,12 +1,11 @@
-
-
-import DotBackground from "components/SVG/DotBackground"
 import { motion } from "motion/react"
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
+import DotBackground from "components/SVG/DotBackground"
 import Dialogue from "../../../public/images/dialogue.svg"
 import DoctorImag from "../../../public/images/doctor.png"
 import UnderLine from "../../../public/images/highlight.png"
+
 type DoctorInfoProps = {
   hideInMobile?: boolean
   sloganTitle: string
@@ -45,31 +44,30 @@ const MainWrapper = ({
   const rightSideRef = useRef<HTMLDivElement>(null)
   const consultationRef = useRef<HTMLSpanElement>(null)
   const [comingSoonSetting, setComingSoonSetting] = useState({
-    top:0, 
-    left:0
+    top: 0,
+    left: 0,
   })
   const [dotsSetting, setDotsSetting] = useState({
-    bottom:0,
-    left:0
+    bottom: 0,
+    left: 0,
   })
 
-
-  useEffect(()=>{
-    if(consultationRef.current){
+  useEffect(() => {
+    if (consultationRef.current) {
       const consultationRect = consultationRef.current.getBoundingClientRect()
       const rightSideRect = rightSideRef.current?.getBoundingClientRect()
       setComingSoonSetting({
-        top:consultationRect.top + (consultationRect.height/2),
-        left:consultationRect.right - 10
+        top: consultationRect.top + consultationRect.height / 2,
+        left: consultationRect.right - 10,
       })
-      if(rightSideRect){
+      if (rightSideRect) {
         setDotsSetting({
-          bottom:rightSideRect.bottom + (rightSideRect.height/2),
-          left:rightSideRect?.left
+          bottom: rightSideRect.bottom + rightSideRect.height / 2,
+          left: rightSideRect?.left,
         })
       }
     }
-  },[rightSideRef, consultationRef])
+  }, [rightSideRef, consultationRef])
 
   return (
     <div className="relative z-20 flex h-[100%] w-full flex-grow flex-col items-start justify-start overflow-visible md:flex-row">
@@ -79,21 +77,26 @@ const MainWrapper = ({
           <h1 className="font-futura-condensed text-secondary text-[1.9rem] leading-tight font-extrabold uppercase md:text-[1.9rem] lg:text-[3.6rem] 2xl:text-[6rem]">
             {sloganTitle}
           </h1>
-          <p className="font-futura-condensed flex flex-col items-start justify-start  leading-tight font-extrabold text-white uppercase text-[1.9rem] md:text-[1.9rem] lg:text-[3.6rem] 2xl:text-[6rem]">
+          <p className="font-futura-condensed flex flex-col items-start justify-start text-[1.9rem] leading-tight font-extrabold text-white uppercase md:text-[1.9rem] lg:text-[3.6rem] 2xl:text-[6rem]">
             <span>{sloganSubtitle}</span>
-            <span ref={consultationRef} className="relative inline-block ">
+            <span ref={consultationRef} className="relative inline-block">
               {consultation}
-              <motion.div initial={{opacity:0}} animate={{opacity: comingSoonSetting.top>0?1:0}} transition={{duration:0.5}} className="w-[180px] z-20 xl:w-[380px] 2xl:w-[480px] h-fit aspect-[144/57] fixed"  style={{
-                top:comingSoonSetting.top,
-                left:comingSoonSetting.left
-              }}>
-              <Image src={Dialogue} alt="Dialogue" className="pointer-events-none" width={500} height={100} />
-              <div className="absolute top-0 left-0 w-full h-full text-[1.9rem]  md:text-[1.9rem] lg:text-[3.6rem] 2xl:text-[5rem] flex justify-center items-center pt-[7%] font-futura-condensed font-extrabold uppercase leading-tight text-white">
-                {comingSoon}
-              </div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: comingSoonSetting.top > 0 ? 1 : 0 }}
+                transition={{ duration: 0.5 }}
+                className="fixed z-20 aspect-[144/57] h-fit w-[180px] xl:w-[380px] 2xl:w-[480px]"
+                style={{
+                  top: comingSoonSetting.top,
+                  left: comingSoonSetting.left,
+                }}
+              >
+                <Image src={Dialogue} alt="Dialogue" className="pointer-events-none" width={500} height={100} />
+                <div className="font-futura-condensed absolute top-0 left-0 flex h-full w-full items-center justify-center pt-[7%] text-[1.9rem] leading-tight font-extrabold text-white uppercase md:text-[1.9rem] lg:text-[3.6rem] 2xl:text-[5rem]">
+                  {comingSoon}
+                </div>
               </motion.div>
             </span>
-           
           </p>
           <div className="font-futura-condensed text-secondary relative inline-block text-[1.9rem] leading-tight font-extrabold uppercase md:text-[1.9rem] lg:text-[3.6rem] 2xl:text-[6rem]">
             {shoelessly}
@@ -114,13 +117,19 @@ const MainWrapper = ({
       </div>
 
       {/* leaf side */}
-      <div ref={rightSideRef}  className="relative flex h-[100%] w-full items-center justify-center md:-ml-[15%]">
-        <motion.div initial={{opacity:0}} animate={{opacity: dotsSetting.bottom>0?1:0}} transition={{duration:0.5}} className="fixed pointer-events-none z-0 hidden md:block top-0 left-0 w-full h-full" style={{
-          bottom:dotsSetting.bottom,
-          left:dotsSetting.left
-        }}>
-         <DotBackground className="-ml-[25%] 2xl:-ml-[30%] h-auto w-[130%]  -mt-[10%]" />
-          </motion.div>
+      <div ref={rightSideRef} className="relative flex h-[100%] w-full items-center justify-center md:-ml-[15%]">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: dotsSetting.bottom > 0 ? 1 : 0 }}
+          transition={{ duration: 0.5 }}
+          className="fixed top-0 left-0 z-0 hidden w-full h-full pointer-events-none md:block"
+          style={{
+            bottom: dotsSetting.bottom,
+            left: dotsSetting.left,
+          }}
+        >
+          <DotBackground className="-mt-[10%] -ml-[25%] h-auto w-[130%] 2xl:-ml-[30%]" />
+        </motion.div>
 
         <Image
           src={DoctorImag}

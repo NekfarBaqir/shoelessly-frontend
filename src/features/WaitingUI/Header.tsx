@@ -1,8 +1,9 @@
 import * as Select from "@radix-ui/react-select"
 import Image from "next/image"
 import { useState } from "react"
-import Logo from "../../../public/images/logo.svg"
 import { Language } from "./WaitingPageUI"
+import Logo from "../../../public/images/logo.svg"
+
 
 const languageMap: Record<string, Language> = {
   English: "EN",
@@ -51,7 +52,7 @@ const Header = ({ onLanguageChange }: LanguageDropdownProps) => {
                 <Select.Item
                   key={item}
                   value={item}
-                  className="px-4 py-2 text-sm text-lg 2xl:text-xl rounded cursor-pointer hover:bg-blue-100 focus:outline-none"
+                  className="px-4 py-2 text-sm rounded cursor-pointer 2xl:text-xl hover:bg-blue-100 focus:outline-none"
                 >
                   <Select.ItemText>{item}</Select.ItemText>
                 </Select.Item>

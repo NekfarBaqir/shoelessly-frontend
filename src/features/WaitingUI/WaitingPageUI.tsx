@@ -1,10 +1,9 @@
 "use client"
 import { useEffect, useState } from "react"
-import translations from "../WaitingUI/translations.json"
 import Footer from "./Footer"
 import Header from "./Header"
 import MainWrapper from "./MainWrapper"
-
+import translations from "../WaitingUI/translations.json"
 export type Language = "EN" | "DE" | "SK" | "CZ"
 
 const WaitingPageUI = () => {
