@@ -1,87 +1,140 @@
+
+
+import DotBackground from "components/SVG/DotBackground"
+import { motion } from "motion/react"
 import Image from "next/image"
-import React from "react"
+import { useEffect, useRef, useState } from "react"
+import Dialogue from "../../../public/images/dialogue.svg"
 import DoctorImag from "../../../public/images/doctor.png"
 import UnderLine from "../../../public/images/highlight.png"
 type DoctorInfoProps = {
-hideInMobile?: boolean,
-sloganTitle: string,
-sloganSubtitle: string;
-consultation: string; 
-shoelessly: string,
-discussSymptoms: string, 
-getAssessment: string,
-secondOpinion: string,
-secondOpinion2: string,
-entExamination: string,
-findMe: string,
-findMe2: string,
-doctorName: string,
-doctorInfo: string,
+  hideInMobile?: boolean
+  sloganTitle: string
+  sloganSubtitle: string
+  consultation: string
+  shoelessly: string
+  discussSymptoms: string
+  getAssessment: string
+  secondOpinion: string
+  secondOpinion2: string
+  entExamination: string
+  findMe: string
+  findMe2: string
+  doctorName: string
+  doctorInfo: string
+  comingSoon: string
 }
 
-const MainWrapper = ({ hideInMobile, sloganTitle,
-sloganSubtitle,
-consultation, 
-shoelessly,
-discussSymptoms, 
-getAssessment,
-secondOpinion,
-secondOpinion2,
-entExamination,
-findMe,
-findMe2,
-doctorName,
-doctorInfo,
- }: DoctorInfoProps) => {
+const MainWrapper = ({
+  hideInMobile,
+  sloganTitle,
+  sloganSubtitle,
+  consultation,
+  shoelessly,
+  discussSymptoms,
+  getAssessment,
+  secondOpinion,
+  secondOpinion2,
+  entExamination,
+  findMe,
+  findMe2,
+  doctorName,
+  doctorInfo,
+  comingSoon,
+}: DoctorInfoProps) => {
+  const rightSideRef = useRef<HTMLDivElement>(null)
+  const consultationRef = useRef<HTMLSpanElement>(null)
+  const [comingSoonSetting, setComingSoonSetting] = useState({
+    top:0, 
+    left:0
+  })
+  const [dotsSetting, setDotsSetting] = useState({
+    bottom:0,
+    left:0
+  })
+
+
+  useEffect(()=>{
+    if(consultationRef.current){
+      const consultationRect = consultationRef.current.getBoundingClientRect()
+      const rightSideRect = rightSideRef.current?.getBoundingClientRect()
+      setComingSoonSetting({
+        top:consultationRect.top + (consultationRect.height/2),
+        left:consultationRect.right - 10
+      })
+      if(rightSideRect){
+        setDotsSetting({
+          bottom:rightSideRect.bottom + (rightSideRect.height/2),
+          left:rightSideRect?.left
+        })
+      }
+    }
+  },[rightSideRef, consultationRef])
+
   return (
-    <div className="relative z-20 flex flex-col items-start justify-start flex-grow w-full h-[100%] overflow-hidden md:flex-row">
+    <div className="relative z-20 flex h-[100%] w-full flex-grow flex-col items-start justify-start overflow-visible md:flex-row">
       {/* leaf side */}
-      <div className="flex h-[100%] w-full flex-col items-start justify-center gap-12 md:w-[65%] md:gap-16 2xl:gap-32">
-        <div className="flex h-[100%] w-[100%] flex-col items-start justify-center gap-12 md:w-[65%] md:gap-16 2xl:gap-32">
-          <div className="flex flex-col items-start justify-center">
-            <h1 className="font-futura text-secondary text-[1.2rem] font-extrabold uppercase md:text-[1.9rem] lg:text-[2.5rem] 2xl:text-[4rem]">
-              {sloganTitle}
-            </h1>
-            <p className="font-futura flex flex-col items-start justify-start text-[1.2rem] font-extrabold text-white uppercase md:text-[1.9rem] lg:text-[2.5rem] 2xl:text-[4rem]">
-              <span>{sloganSubtitle}</span>
-              <span className="relative inline-block">
-               {consultation}
-                {/* <span className="coming-soon-note">Coming Soon</span> */}
-              </span>
-            </p>
-            <div className="font-futura text-secondary relative inline-block text-[1.2rem] font-extrabold uppercase md:text-[1.9rem] lg:text-[2.5rem] 2xl:text-[4rem]">
-             { shoelessly}
-              <div className="absolute top-[90%] left-0 h-full w-full">
-                <Image src={UnderLine} alt="Doctor Image" width={500} height={100} />
+      <div className="flex h-auto w-[100%] flex-col items-start justify-start gap-7 pb-5 md:h-[100%] md:gap-16 md:pb-0 2xl:gap-32">
+        <div className="flex flex-col items-start justify-center">
+          <h1 className="font-futura-condensed text-secondary text-[1.9rem] leading-tight font-extrabold uppercase md:text-[1.9rem] lg:text-[3.6rem] 2xl:text-[6rem]">
+            {sloganTitle}
+          </h1>
+          <p className="font-futura-condensed flex flex-col items-start justify-start  leading-tight font-extrabold text-white uppercase text-[1.9rem] md:text-[1.9rem] lg:text-[3.6rem] 2xl:text-[6rem]">
+            <span>{sloganSubtitle}</span>
+            <span ref={consultationRef} className="relative inline-block ">
+              {consultation}
+              <motion.div initial={{opacity:0}} animate={{opacity: comingSoonSetting.top>0?1:0}} transition={{duration:0.5}} className="w-[180px] z-20 xl:w-[380px] 2xl:w-[480px] h-fit aspect-[144/57] fixed"  style={{
+                top:comingSoonSetting.top,
+                left:comingSoonSetting.left
+              }}>
+              <Image src={Dialogue} alt="Dialogue" className="pointer-events-none" width={500} height={100} />
+              <div className="absolute top-0 left-0 w-full h-full text-[1.9rem]  md:text-[1.9rem] lg:text-[3.6rem] 2xl:text-[5rem] flex justify-center items-center pt-[7%] font-futura-condensed font-extrabold uppercase leading-tight text-white">
+                {comingSoon}
               </div>
+              </motion.div>
+            </span>
+           
+          </p>
+          <div className="font-futura-condensed text-secondary relative inline-block text-[1.9rem] leading-tight font-extrabold uppercase md:text-[1.9rem] lg:text-[3.6rem] 2xl:text-[6rem]">
+            {shoelessly}
+            <div className="absolute top-[90%] left-0 h-full w-full">
+              <Image src={UnderLine} alt="Doctor Image" width={500} height={100} />
             </div>
           </div>
-          <p className="flex flex-col items-start justify-start font-sans text-[0.6rem] font-light md:text-[1.2rem] lg:text-[2rem] 2xl:text-[1.8rem]">
-           {discussSymptoms}
-            <br />
-            {getAssessment}
-            <br />
-           {secondOpinion}
-            <br />
-           {secondOpinion2}
-          </p>
         </div>
+        <p className="flex flex-col items-start justify-start font-sans text-[0.9rem] font-light md:text-[1.3rem] lg:text-[1.7rem] 2xl:text-[2.2rem]">
+          <span className="w-full">{discussSymptoms}</span>
+
+          <span className="w-full">{getAssessment}</span>
+
+          <span className="w-full">{secondOpinion}</span>
+
+          <span className="w-full">{secondOpinion2}</span>
+        </p>
       </div>
 
       {/* leaf side */}
-      <div className="relative flex h-[100%] w-full items-center justify-center md:-ml-[10%] md:w-[50%]">
+      <div ref={rightSideRef}  className="relative flex h-[100%] w-full items-center justify-center md:-ml-[15%]">
+        <motion.div initial={{opacity:0}} animate={{opacity: dotsSetting.bottom>0?1:0}} transition={{duration:0.5}} className="fixed pointer-events-none z-0 hidden md:block top-0 left-0 w-full h-full" style={{
+          bottom:dotsSetting.bottom,
+          left:dotsSetting.left
+        }}>
+         <DotBackground className="-ml-[25%] 2xl:-ml-[30%] h-auto w-[130%]  -mt-[10%]" />
+          </motion.div>
+
         <Image
           src={DoctorImag}
-          className="-right-[15%] z-[-1] h-[330px] w-full md:right-0 md:ml-0 md:h-auto md:w-auto"
+          className="relative -right-[15%] z-20 h-[330px] w-full md:right-0 md:ml-0 md:h-auto md:w-auto 2xl:h-full"
           alt="Description"
-          style={{ position: "relative", zIndex: 2 }}
         />
 
-        <div className="absolute top-0 left-0 h-[75%] w-[40%] md:hidden">
+        <div className="absolute top-0 left-0 flex h-[75%] w-[50%] flex-col items-start justify-center md:hidden">
           <div className="flex flex-col items-start justify-center gap-2">
             <div className="flex flex-col items-center justify-start md:flex">
-              <h2 className="font-futura text-secondary text-[1rem] font-extrabold">{entExamination}</h2>
-              <p className="font-sans text-[0.9rem] font-light">
+              <h2 className="font-futura-condensed text-secondary w-full text-left text-[1rem] font-extrabold md:text-[1rem] lg:text-[1.2rem] xl:text-[2rem]">
+                {entExamination}
+              </h2>
+              <p className="xl:text-[1.3rem font-sans text-[0.7rem] font-light md:text-[1.2rem] lg:text-[1.4rem]">
                 {findMe}
                 <br />
                 {findMe2}
@@ -90,15 +143,18 @@ doctorInfo,
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 flex h-auto w-[40%] flex-col items-start justify-start gap-2 md:right-[0.5rem] md:left-auto lg:right-[0.5rem] md:bottom-0 lg:bottom-[-2rem] xl:right-[0.5rem]">
+        <div className="absolute bottom-0 left-0 flex h-auto w-[45%] flex-col items-start justify-start gap-2 md:right-[0.5rem] md:bottom-0 md:left-auto lg:right-[0.5rem] lg:bottom-[-2rem] xl:right-[0.5rem] 2xl:bottom-[0rem]">
           <div
-            className={`flex flex-grow flex-col items-start justify-start ${hideInMobile ? "hidden md:flex" : "flex"} md:flex`}
+            className={`flex flex-grow flex-col items-start justify-start ${hideInMobile ? "hidden md:flex" : "flex"} `}
           >
-            <h1 className="text-[1rem] font-futura uppercase text-secondary font-extrabold md:text-[1.5rem] lg:text-[1.6rem] xl:text-[2.5rem]">{doctorName}</h1>
-            <p className="text-[0.9rem] font-sans font-light md:text-[1.2rem] lg:text-[1.4rem] xl:text-[1.6rem]">{doctorInfo}</p>
+            <h1 className="font-futura-condensed text-secondary text-[0.8rem] font-extrabold uppercase md:text-[1rem] lg:text-[1.2rem] xl:text-[2rem]">
+              {doctorName}
+            </h1>
+            <p className="font-sans text-[0.7rem] font-light md:text-[1.2rem] lg:text-[1.4rem] xl:text-[1.3rem]">
+              {doctorInfo}
+            </p>
           </div>
         </div>
-
       </div>
     </div>
   )

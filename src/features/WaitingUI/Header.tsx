@@ -1,8 +1,8 @@
 import * as Select from "@radix-ui/react-select"
 import Image from "next/image"
-import {  useState } from "react"
+import { useState } from "react"
+import Logo from "../../../public/images/logo.svg"
 import { Language } from "./WaitingPageUI"
-import Logo from "../../../public/images/logo.png"
 
 const languageMap: Record<string, Language> = {
   English: "EN",
@@ -35,13 +35,13 @@ const Header = ({ onLanguageChange }: LanguageDropdownProps) => {
         alt="logo.png"
         width={300}
         height={100}
-        className="h-[50px] w-[110px] md:h-[50px] md:w-[170px] lg:h-[60px] lg:w-[225.59px] xl:w-[245.59px]"
+        className="aspect-[245/67] max-w-[245px] w-[120px] md:w-[170px] "
       />
 
       <Select.Root value={selected} onValueChange={handleLanguageChange}>
         <Select.Trigger className="flex items-center gap-2 px-3 py-1 bg-transparent border-none shadow-none focus:border-none focus:ring-0 focus:outline-none">
-          <span className="text-2xl font-semibold">{languageMap[selected]}</span>
-          <Select.Icon className="text-2xl">▼</Select.Icon>
+          <span className="text-[0.9rem] md:text-[1.2rem] font-semibold">{languageMap[selected]}</span>
+          <Select.Icon className="text-[0.9rem] md:text-[1.2rem]">▼</Select.Icon>
         </Select.Trigger>
 
         <Select.Portal>
@@ -51,7 +51,7 @@ const Header = ({ onLanguageChange }: LanguageDropdownProps) => {
                 <Select.Item
                   key={item}
                   value={item}
-                  className="px-4 py-2 text-xl rounded cursor-pointer hover:bg-blue-100 focus:outline-none"
+                  className="px-4 py-2 text-sm text-lg 2xl:text-xl rounded cursor-pointer hover:bg-blue-100 focus:outline-none"
                 >
                   <Select.ItemText>{item}</Select.ItemText>
                 </Select.Item>

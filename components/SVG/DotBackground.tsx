@@ -1,5 +1,5 @@
 
-const DotBackground = () => {
+const DotBackground = ({className}: {className?: string}) => {
   return (
     <svg
       width="1482"
@@ -7,7 +7,7 @@ const DotBackground = () => {
       viewBox="0 0 1482 1317"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-   
+      className={className}
     >
       <mask
         id="mask0_70_137"
