@@ -41,8 +41,8 @@ const Header = ({ onLanguageChange }: LanguageDropdownProps) => {
 
       <Select.Root value={selected} onValueChange={handleLanguageChange}>
         <Select.Trigger className="flex items-center gap-2 px-3 py-1 bg-transparent border-none shadow-none focus:border-none focus:ring-0 focus:outline-none">
-          <span className="text-[0.9rem] md:text-[1.2rem] font-semibold">{languageMap[selected]}</span>
-          <Select.Icon className="text-[0.9rem] md:text-[1.2rem]">▼</Select.Icon>
+          <span className="text-[0.9rem] font-semibold">{languageMap[selected]}</span>
+          <Select.Icon className="text-[0.9rem]">▼</Select.Icon>
         </Select.Trigger>
 
         <Select.Portal>
@@ -52,7 +52,7 @@ const Header = ({ onLanguageChange }: LanguageDropdownProps) => {
                 <Select.Item
                   key={item}
                   value={item}
-                  className="px-4 py-2 text-sm rounded cursor-pointer 2xl:text-xl hover:bg-blue-100 focus:outline-none"
+                  className="px-4 py-2 text-sm rounded cursor-pointer hover:bg-blue-100 focus:outline-none"
                 >
                   <Select.ItemText>{item}</Select.ItemText>
                 </Select.Item>

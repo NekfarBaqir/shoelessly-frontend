@@ -18,8 +18,6 @@ const WaitingPageUI = () => {
   const t = translations[language as keyof typeof translations]
   return (
     <div className="flex items-center justify-center h-screen overflow-hidden text-white bg-primary">
-      {/* Header & mainCOntent & footer  */}
-
       <div className="m-auto flex h-[100%] max-h-[1440px] w-full max-w-[1440px] flex-col items-start justify-start p-4 md:p-6 lg:p-8 xl:p-10 2xl:max-w-[1920px]">
         <Header onLanguageChange={setLanguage} />
         <MainWrapper
@@ -36,6 +34,8 @@ const WaitingPageUI = () => {
           findMe2={t.find_me2}
           doctorName={t.doctor_name}
           doctorInfo={t.doctor_info}
+          doctorInfo2={t.doctor_info2}
+          doctorInfo3={t.doctor_info3}
           comingSoon={t.coming_soon}
         />
 

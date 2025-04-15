@@ -22,6 +22,8 @@ type DoctorInfoProps = {
   doctorName: string
   doctorInfo: string
   comingSoon: string
+  doctorInfo2: string;
+  doctorInfo3: string;
 }
 
 const MainWrapper = ({
@@ -40,6 +42,8 @@ const MainWrapper = ({
   doctorName,
   doctorInfo,
   comingSoon,
+  doctorInfo2,
+  doctorInfo3
 }: DoctorInfoProps) => {
   const rightSideRef = useRef<HTMLDivElement>(null)
   const consultationRef = useRef<HTMLSpanElement>(null)
@@ -156,7 +160,7 @@ const MainWrapper = ({
           variants={slideInFromLeft}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-start justify-start font-sans text-[0.9rem] font-light md:text-[1.3rem] lg:text-[1.7rem] 2xl:text-[2.2rem]"
+          className="flex flex-col items-start justify-start font-sans text-[0.9rem] font-light md:text-[1.3rem] lg:text-[1.7rem] 2xl:text-[2.1rem] pt-0 xl:pt-4"
         >
           <span className="w-full">{discussSymptoms}</span>
           <span className="w-full">{getAssessment}</span>
@@ -209,7 +213,7 @@ const MainWrapper = ({
               {doctorName}
             </h1>
             <p className="font-sans text-[0.7rem] font-light md:text-[1.2rem] lg:text-[1.4rem] xl:text-[1.3rem]">
-              {doctorInfo}
+              {doctorInfo} <br/> {doctorInfo2} <br/> {doctorInfo3}
             </p>
           </div>
         </div>

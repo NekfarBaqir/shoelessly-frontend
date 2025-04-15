@@ -13,7 +13,9 @@
       "find_me": "You can also visit me in person for an ENT examination at",
       "find_me2": "HNO Dr. Stark, Praterstraße 27, 1020 Vienna, Austria.",
       "doctor_name": "DR. IVANA VYRVOVA",
-      "doctor_info": "Otorhinolaryngologist\nResident Doctor in Vienna\nShoelessly Founder"
+      "doctor_info": "Otorhinolaryngologist",
+      "doctor_info2": "Resident Doctor in Vienna",
+      "doctor_info3": "Shoelessly Founder"
     },
     "DE": {
       "slogan_title": "Ihre Ohren, Nase & Hals",
@@ -29,7 +31,9 @@
       "find_me": "Sie können mich auch persönlich zur HNO-Untersuchung besuchen bei",
       "find_me2": "HNO Dr. Stark, Praterstraße 27, 1020 Wien, Österreich.",
       "doctor_name": "DR. IVANA VYRVOVA",
-     "doctor_info": "Hals-Nasen-Ohren-Arzt\nAssistenzarzt in Wien\nGründer von Shoelessly"
+     "doctor_info": "Hals-Nasen-Ohren-Arzt",
+     "doctor_info2": "Assistenzarzt in Wien",
+     "doctor_info3": "Gründer von Shoelessly"
 
     },
     "SK": {
@@ -46,7 +50,9 @@
       "find_me": "Môžete ma navštíviť aj osobne na ORL vyšetrenie na adrese",
       "find_me2": "ORL Dr. Stark, Praterstraße 27, 1020 Viedeň, Rakúsko.",
       "doctor_name": "DR. IVANA VYRVOVA",
-      "doctor_info": "Otorinolaryngológ\nLekár v atestácii vo Viedni\nZakladateľ Shoelessly"
+      "doctor_info": "Otorinolaryngológ",
+      "doctor_info2": "Lekár v atestácii vo Viedni",
+      "doctor_info3": "Zakladateľ Shoelessly"
 
     },
     "CZ": {
@@ -63,7 +69,9 @@
       "find_me": "Můžete mě také navštívit osobně na ORL vyšetření na adrese",
       "find_me2": "ORL Dr. Stark, Praterstraße 27, 1020 Vídeň, Rakousko.",
       "doctor_name": "DR. IVANA VYRVOVA",
-     "doctor_info": "Otorinolaryngolog\nLékař v atestaci ve Vídni\nZakladatel Shoelessly"
+     "doctor_info": "Otorinolaryngolog",
+     "doctor_info2": "Lékař v atestaci ve Vídni",
+     "doctor_info3": "Zakladatel Shoelessly"
 
     }
   }
