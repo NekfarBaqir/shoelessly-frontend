@@ -50,19 +50,19 @@ const socialLinks = [
 ]
 const Footer = ({ entExamination, findMe, findMe2 }: FooterProp) => {
   return (
-    <div className="flex w-[100%] items-center justify-between pt-[1rem]">
+    <div className="flex w-[100%] items-end justify-between pt-[1rem]">
       <div className="hidden md:block">
-        <h1 className="font-futura-condensed text-secondary text-[0.9rem] md:text-[1rem] lg:text-[1.2rem] xl:text-[2rem]">{entExamination}</h1>
-        <p className="font-sans text-[0.7rem] md:text-[1.2rem] lg:text-[1.4rem] xl:text-[1.3rem]">
+        <h1 className="font-futura-condensed text-secondary text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.6rem] 2xl:text-[1.8rem]">{entExamination}</h1>
+        <p className="font-sans text-[0.7rem]  md:text-[0.8rem] lg:text-[0.8rem] xl:text-[0.9rem] 2xl:text-[1rem]">
           {findMe} <br /> {findMe2}
         </p>
       </div>
 
-      <div className="mt-5 flex w-[100%] items-center justify-center gap-[1.2rem] pr-0 md:w-fit md:justify-end md:pr-[3rem] lg:gap-[2rem] xl:gap-[2.5rem]">
+      <div className="mt-5 flex w-[100%] items-center justify-center gap-[1.2rem] pr-0 md:w-fit md:justify-end md:pr-[3rem] lg:gap-[1.5rem] xl:gap-[2rem]">
        
        {socialLinks?.map(social=>{
         return(
-          <a key={social?.name} className="bg-secondary text-primary inline-flex h-[1em] w-[1em] p-2 items-center justify-center rounded-full text-[2rem] no-underline hover:opacity-80 md:h-[1.2em] md:w-[1.2em] 2xl:h-[1.5em] 2xl:w-[1.5em]" href={social?.href}>
+          <a key={social?.name} className="bg-secondary text-primary inline-flex p-2 items-center justify-center rounded-full text-[2rem] no-underline hover:opacity-80 w-8 h-8 2xl:w-10 2xl:h-10" href={social?.href}>
             {social?.icon}
           </a>
         )
