@@ -42,8 +42,8 @@ const socialLinks = [
 ]
 const Footer = ({ entExamination, findMe, findMe2 }: FooterProp) => {
   return (
-    <motion.div variants={fadeInSlow} initial="hidden" animate="visible">
-      <div className="flex w-[100%] items-end justify-between pt-[1rem]">
+    <div className="flex w-[100%] items-end justify-between pt-[1rem]">
+      <motion.div variants={fadeInSlow} initial="hidden" animate="visible">
         <div className="hidden md:block">
           <h1 className="font-futura-condensed text-secondary text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.6rem] 2xl:text-[1.8rem]">
             {entExamination}
@@ -52,7 +52,9 @@ const Footer = ({ entExamination, findMe, findMe2 }: FooterProp) => {
             {findMe} <br /> {findMe2}
           </p>
         </div>
+      </motion.div>
 
+      <motion.div variants={fadeInSlow} initial="hidden" animate="visible">
         <div className="mt-5 flex w-[100%] items-center justify-center gap-[1.2rem] pr-0 md:w-fit md:justify-end md:pr-[3rem] lg:gap-[1.5rem] xl:gap-[2rem]">
           {socialLinks?.map((social) => {
             return (
@@ -66,8 +68,8 @@ const Footer = ({ entExamination, findMe, findMe2 }: FooterProp) => {
             )
           })}
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   )
 }
 
