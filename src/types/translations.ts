@@ -19,3 +19,10 @@ export type DoctorInfoTranslationObject = {
 }
 
 export type Language = "EN" | "DE" | "SK" | "CZ"
+
+export const languageMap: Record<string, Language> = {
+    English: "EN",
+    Deutsch: "DE",
+    Slovak: "SK",
+    Czech: "CZ",
+  }

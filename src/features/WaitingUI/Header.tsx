@@ -1,16 +1,11 @@
 import * as Select from "@radix-ui/react-select"
 import Image from "next/image"
 import { useState } from "react"
-import { Language } from "./WaitingPageUI"
+import { Language, languageMap } from "src/types/translations"
 import Logo from "../../../public/images/logo.svg"
 
 
-const languageMap: Record<string, Language> = {
-  English: "EN",
-  Deutsch: "DE",
-  Slovak: "SK",
-  Czech: "CZ",
-}
+
 
 export type LanguageDropdownProps = {
   onLanguageChange: (language: Language) => void
