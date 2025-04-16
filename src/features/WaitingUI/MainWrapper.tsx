@@ -1,8 +1,8 @@
-import DotBackground from "components/SVG/DotBackground"
 import { motion } from "motion/react"
 import Image from "next/image"
 import { useRef } from "react"
-import { fadeInUp, slideInFromLeft } from "src/constants/animations"
+import DotBackground from "components/SVG/DotBackground"
+import { fadeInSlow, fadeInUp, slideInFromLeft } from "src/constants/animations"
 import { useElementPosition } from "src/hooks/useElementPosition"
 import { useResponsiveTextSize } from "src/hooks/useResponsiveTextSize"
 import { DoctorInfoTranslationObject } from "src/types/translations"
@@ -15,7 +15,7 @@ type MainWrapperProps = {
 }
 
 const SloganSection = ({ translations }: { translations: DoctorInfoTranslationObject }) => (
-  <div className="flex flex-col items-start justify-center z-50">
+  <div className="z-50 flex flex-col items-start justify-center">
     <motion.h1
       variants={fadeInUp}
       transition={{ delay: 0.2, ease: "easeInOut" }}
@@ -41,25 +41,16 @@ const SloganSection = ({ translations }: { translations: DoctorInfoTranslationOb
 )
 
 const ConsultationText = ({ translations }: { translations: DoctorInfoTranslationObject }) => {
-  const consultationRef = useRef<HTMLSpanElement>(null);
-  const { textRef, containerRef, textSize } = useResponsiveTextSize(translations.comingSoon);
-  const comingSoonPosition = useElementPosition(
-    consultationRef,
-    undefined,
-    (element) => ({
-      top: element.top + element.height / 2,
-      left: element.right - 20,
-    })
-  );
+  const consultationRef = useRef<HTMLSpanElement>(null)
+  const { textRef, containerRef, textSize } = useResponsiveTextSize(translations.comingSoon)
+  const comingSoonPosition = useElementPosition(consultationRef, undefined, (element) => ({
+    top: element.top + element.height / 2,
+    left: element.right - 20,
+  }))
 
   return (
     <span ref={consultationRef} className="relative inline-block">
-      <motion.h1
-        variants={fadeInUp}
-        transition={{ delay: 0.2, ease: "easeInOut" }}
-        initial="hidden"
-        animate="visible"
-      >
+      <motion.h1 variants={fadeInUp} transition={{ delay: 0.2, ease: "easeInOut" }} initial="hidden" animate="visible">
         {translations.consultation}
       </motion.h1>
       <motion.div
@@ -70,10 +61,13 @@ const ConsultationText = ({ translations }: { translations: DoctorInfoTranslatio
         style={comingSoonPosition}
       >
         <Image src={Dialogue} alt="Dialogue" className="pointer-events-none" width={500} height={100} />
-        <div ref={containerRef} className="font-futura-condensed absolute top-0 text-nowrap left-0 flex h-full w-full items-center justify-center pt-[7%] text-white uppercase">
-          <span 
+        <div
+          ref={containerRef}
+          className="font-futura-condensed absolute top-0 left-0 flex h-full w-full items-center justify-center pt-[7%] text-nowrap text-white uppercase"
+        >
+          <span
             ref={textRef}
-            className="font-extrabold leading-tight inline-block whitespace-nowrap" 
+            className="inline-block font-extrabold leading-tight whitespace-nowrap"
             style={{ fontSize: textSize }}
           >
             {translations.comingSoon}
@@ -86,12 +80,7 @@ const ConsultationText = ({ translations }: { translations: DoctorInfoTranslatio
 
 const ShoelesslyText = ({ translations }: { translations: DoctorInfoTranslationObject }) => (
   <div className="font-futura-condensed text-secondary relative inline-block text-[1.9rem] leading-tight font-extrabold uppercase md:text-[1.9rem] lg:text-[3.6rem] 2xl:text-[6rem]">
-    <motion.h1
-      variants={fadeInUp}
-      transition={{ delay: 0.2, ease: "easeInOut" }}
-      initial="hidden"
-      animate="visible"
-    >
+    <motion.h1 variants={fadeInUp} transition={{ delay: 0.2, ease: "easeInOut" }} initial="hidden" animate="visible">
       {translations.shoelessly}
       <div className="absolute top-[90%] left-0 h-full w-full">
         <Image src={UnderLine} alt="Doctor Image" width={500} height={100} />
@@ -105,7 +94,7 @@ const FeaturesList = ({ translations }: { translations: DoctorInfoTranslationObj
     variants={slideInFromLeft}
     initial="hidden"
     animate="visible"
-    className="flex flex-col items-start justify-start font-sans text-[0.7rem] font-light md:text-[1rem] lg:text-[1.2rem] pt-4 2xl:text-[1.8rem] xl:pt-10"
+    className="flex flex-col items-start justify-start pt-4 font-sans text-[0.7rem] font-light md:text-[1rem] lg:text-[1.2rem] xl:pt-10 2xl:text-[1.8rem]"
   >
     <span className="w-full">{translations.discussSymptoms}</span>
     <span className="w-full">{translations.getAssessment}</span>
@@ -115,35 +104,36 @@ const FeaturesList = ({ translations }: { translations: DoctorInfoTranslationObj
 )
 
 const DoctorImageSection = ({ translations }: { translations: DoctorInfoTranslationObject }) => {
-  const rightSideRef = useRef<HTMLDivElement>(null);
-  const dotsPosition = useElementPosition(
-    rightSideRef,
-    undefined,
-    (element) => ({
-      bottom: element.bottom + element.height / 2,
-      left: element.left,
-    })
-  );
+  const rightSideRef = useRef<HTMLDivElement>(null)
+  const dotsPosition = useElementPosition(rightSideRef, undefined, (element) => ({
+    bottom: element.bottom + element.height / 2,
+    left: element.left,
+  }))
 
   return (
-    <div ref={rightSideRef} className="relative flex h-auto md:h-[100%] w-full items-center justify-center md:-ml-[15%]">
+    <div
+      ref={rightSideRef}
+      className="relative flex h-auto w-full items-center justify-center md:-ml-[15%] md:h-[100%]"
+    >
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: dotsPosition.bottom ? 1 : 0 }}
-        transition={{ duration: 0.5 }}
+        variants={fadeInSlow}
+        initial="hidden"
+        animate="visible"
         className="fixed top-0 left-0 z-0 hidden w-full h-full pointer-events-none md:block"
         style={dotsPosition}
       >
         <DotBackground className="-mt-[10%] -ml-[25%] h-auto w-[130%] 2xl:-ml-[30%]" />
       </motion.div>
 
-      <Image
-        src={DoctorImag}
-        className="relative -right-[15%] z-20 h-[300px] w-auto object-cover md:right-0 md:ml-0 md:h-auto md:w-auto 2xl:h-full"
-        alt="Description"
-      />
-      <div className="absolute inset-0 w-full h-full md:hidden z-10 ml-[25%] top-[10%]">
-        <DotBackground className="w-[250%] h-auto -ml-[30%]" />
+      <motion.div variants={fadeInSlow} initial="hidden" animate="visible">
+        <Image
+          src={DoctorImag}
+          className="relative -right-[15%] z-20 h-[300px] w-auto object-cover md:right-0 md:ml-0 md:h-auto md:w-auto 2xl:h-full"
+          alt="Description"
+        />
+      </motion.div>
+      <div className="absolute inset-0 top-[10%] z-10 ml-[25%] h-full w-full md:hidden">
+        <DotBackground className="-ml-[30%] h-auto w-[250%]" />
       </div>
 
       <MobileDoctorInfo translations={translations} />
@@ -171,13 +161,19 @@ const MobileDoctorInfo = ({ translations }: { translations: DoctorInfoTranslatio
 
 const DesktopDoctorInfo = ({ translations }: { translations: DoctorInfoTranslationObject }) => (
   <div className="absolute bottom-0 left-0 flex h-auto w-[45%] flex-col items-start justify-start gap-2 md:right-[0.5rem] md:bottom-0 md:left-auto lg:right-[0.5rem] lg:bottom-[-2rem] xl:right-[0.5rem] 2xl:bottom-[0rem]">
-    <div className={`flex flex-grow flex-col items-start justify-start ${translations.hideInMobile ? "hidden md:flex" : "flex"}`}>
-      <h1 className="font-futura-condensed text-secondary text-[0.8rem] font-extrabold uppercase md:text-[0.9rem] lg:text-[1rem] xl:text-[1.6rem]">
-        {translations.doctorName}
-      </h1>
-      <p className="font-sans text-[0.7rem] font-light md:text-[0.8rem] lg:text-[0.8rem] xl:text-[0.9rem] 2xl:text-[1rem]">
-        {translations.doctorInfo} <br/> {translations.doctorInfo2} <br/> {translations.doctorInfo3}
-      </p>
+    <div
+      className={`flex flex-grow flex-col items-start justify-start ${
+        translations.hideInMobile ? "hidden md:flex" : "flex"
+      }`}
+    >
+      <motion.div variants={fadeInSlow} initial="hidden" animate="visible">
+        <h1 className="font-futura-condensed text-secondary text-[0.8rem] font-extrabold uppercase md:text-[0.9rem] lg:text-[1rem] xl:text-[1.6rem]">
+          {translations.doctorName}
+        </h1>
+        <p className="font-sans text-[0.7rem] font-light md:text-[0.8rem] lg:text-[0.8rem] xl:text-[0.9rem] 2xl:text-[1rem]">
+          {translations.doctorInfo} <br /> {translations.doctorInfo2} <br /> {translations.doctorInfo3}
+        </p>
+      </motion.div>
     </div>
   </div>
 )
